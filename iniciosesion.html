@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear cuenta | BOOKNET</title>
+  <style>
+    body {
+      background-color: #fdefff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background-color: #fff8f8;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #556b2f;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 2rem;
+      background-color: #a8d042;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #8ab435;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Crear cuenta</h1>
+    <form onsubmit="crearCuenta(event)">
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" required />
+
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" required />
+
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" required />
+
+      <button type="submit">Registrarme</button>
+    </form>
+  </div>
+
+  <script>
+    function crearCuenta(event) {
+      event.preventDefault();
+     
+      window.location.href = "confirmacion-registro.html";
+    }
+  </script>
+</body>
+</html>

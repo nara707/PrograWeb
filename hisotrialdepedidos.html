@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOOKNET - Historial de pedidos</title>
+  <style>
+    body {
+      background-color: #fdefff;
+      font-family: 'Fredoka', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #dc2f5e;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    header .logo {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 2rem;
+      color: white;
+    }
+
+    h2 {
+      color: #556b2f;
+      padding: 1rem;
+      margin: 0;
+    }
+
+    .pedido {
+      display: flex;
+      align-items: center;
+      margin: 1rem;
+      padding: 1rem;
+      border-radius: 12px;
+    }
+
+    .pedido img {
+      width: 100px;
+      height: auto;
+      border-radius: 12px;
+      border: 5px solid #dc2f5e;
+      margin-right: 1rem;
+    }
+
+    .pedido-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pedido-info h3 {
+      margin: 0;
+      color: #556b2f;
+      font-size: 1.5rem;
+    }
+
+    .pedido-info .fecha {
+      color: #dc2f5e;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .pedido-info .estado {
+      color: #a2c83a;
+      font-weight: bold;
+    }
+
+    .volver {
+      display: block;
+      margin: 2rem auto;
+      padding: 0.8rem 1.5rem;
+      background-color: #dc2f5e;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .volver:hover {
+      background-color: #c22e50;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">BOOKNET</div>
+  </header>
+  <h2>HISTORIAL DE PEDIDOS</h2>
+
+  <div id="historial-container"></div>
+
+  <div class="pedido" style="background-color: #fddde9;">
+    <img src="https://m.media-amazon.com/images/I/81vd2d65h+L._AC_UF894,1000_QL80_.jpg" alt="Harry Potter y el prisionero de Azkaban">
+    <div class="pedido-info">
+      <h3>EL LIBRO DE LA SELVA</h3>
+      <span class="fecha">01/08/2024</span>
+      <span class="estado">ENVIADO</span>
+    </div>
+  </div>
+
+  <div class="pedido" style="background-color: #edf2d9;">
+    <img src="https://m.media-amazon.com/images/I/81dxFCnAp0L.jpg" alt="Harry potter y la piedra filosofal">
+    <div class="pedido-info">
+      <h3>FANTASTIC MR FOX</h3>
+      <span class="fecha">05/12/2023</span>
+      <span class="estado">RECIBIDO</span>
+    </div>
+  </div>
+  <button class="volver" onclick="window.location.href='index.html'">Volver al inicio</button>
+
+  <script>
+    const historialContainer = document.getElementById('historial-container');
+
+    // Simulación: datos en localStorage
+    // localStorage.setItem('historialPedidos', JSON.stringify([
+    //   {
+    //     titulo: 'EL LIBRO DE LA SELVA',
+    //     fecha: '01/08/2024',
+    //     estado: 'ENVIADO',
+    //     imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/El_libro_de_la_selva_-_Rudyard_Kipling.jpg/330px-El_libro_de_la_selva_-_Rudyard_Kipling.jpg',
+    //     fondo: '#fddde9'
+    //   },
+    //   {
+    //     titulo: 'FANTASTIC MR FOX',
+    //     fecha: '05/12/2023',
+    //     estado: 'RECIBIDO',
+    //     imagen: 'https://upload.wikimedia.org/wikipedia/en/5/5e/Fantastic_mr_fox_book_cover.jpg',
+    //     fondo: '#edf2d9'
+    //   }
+    // ]));
+
+    const pedidos = JSON.parse(localStorage.getItem('historialPedidos')) || [];
+
+    pedidos.forEach(pedido => {
+      const div = document.createElement('div');
+      div.className = 'pedido';
+      div.style.backgroundColor = pedido.fondo;
+      div.innerHTML = `
+        <img src="${pedido.imagen}" alt="${pedido.titulo}">
+        <div class="pedido-info">
+          <h3>${pedido.titulo}</h3>
+          <span class="fecha">${pedido.fecha}</span>
+          <span class="estado">${pedido.estado}</span>
+        </div>
+      `;
+      historialContainer.appendChild(div);
+    });
+  </script>
+</body>
+</html>
