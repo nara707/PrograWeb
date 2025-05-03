@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -35,7 +36,7 @@
       color: #333;
     }
 
-    #vaciar-carrito, #finalizar-compra {
+    #vaciar-carrito, #finalizar-compra, #ver-historial, #volver-inicio {
       margin-top: 1rem;
       padding: 0.5rem 1rem;
       background-color: #dc2f5e;
@@ -47,20 +48,29 @@
       margin-right: 1rem;
     }
 
-    #vaciar-carrito:hover, #finalizar-compra:hover {
+    #vaciar-carrito:hover, #finalizar-compra:hover, #ver-historial:hover, #volver-inicio:hover {
       background-color: #c22e50;
+    }
+
+    #saludo-usuario {
+      font-weight: bold;
+      color: #556b2f;
+      margin-bottom: 1rem;
     }
   </style>
 </head>
 <body>
-  <h1>Bienvenido a BOOKNET 📚</h1>
+  <div id="saludo-usuario"></div>
+  <h1>Bienvenido a BOOKNET </h1>
   <p>Descubre nuestros libros favoritos y agrégalos a tu carrito.</p>
 
   <div id="carrito-contenido">
     <h2>🛒 Carrito de compras</h2>
     <ul id="lista-carrito"></ul>
     <button id="vaciar-carrito" onclick="vaciarCarrito()">Vaciar carrito</button>
-    <button id="finalizar-compra" onclick="window.location.href='crear-cuenta.html'">Finalizar compra</button>
+    <button id="finalizar-compra" onclick="finalizarCompra()">Finalizar compra</button>
+    <button id="ver-historial" onclick="window.location.href='hisotrialdepedidos.html'">Ver historial</button>
+    <button id="volver-inicio" onclick="window.location.href='index.html'">Volver al inicio</button>
   </div>
 
   <script>
@@ -78,7 +88,7 @@
 
       carrito.forEach((producto) => {
         const item = document.createElement("li");
-        item.textContent = ${producto.nombre} - $${producto.precio.toFixed(2)} MXN;
+        item.textContent = `${producto.nombre} - $${producto.precio.toFixed(2)} MXN`;
         lista.appendChild(item);
       });
     }
@@ -88,7 +98,34 @@
       mostrarCarrito();
     }
 
-    window.onload = mostrarCarrito;
+    function finalizarCompra() {
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+      }
+
+      let historial = JSON.parse(localStorage.getItem("historialPedidos")) || [];
+      historial.push(carrito);
+      localStorage.setItem("historialPedidos", JSON.stringify(historial));
+
+      alert("¡Compra finalizada! Gracias por tu pedido.");
+      localStorage.removeItem("carrito");
+      mostrarCarrito();
+    }
+
+    function mostrarSaludoUsuario() {
+      const usuario = JSON.parse(localStorage.getItem("usuarioRegistrado"));
+      if (usuario && usuario.nombre) {
+        const saludo = document.getElementById("saludo-usuario");
+        saludo.textContent = `Hola, ${usuario.nombre}! 👋`;
+      }
+    }
+
+    window.onload = function () {
+      mostrarSaludoUsuario();
+      mostrarCarrito();
+    };
   </script>
 </body>
 </html>
