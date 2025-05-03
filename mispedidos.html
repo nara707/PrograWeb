@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BOOKNET - Seguimiento de Pedido</title>
+  <style>
+    body {
+      background-color: #fdefff;
+      font-family: 'Fredoka', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #dc2f5e;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      font-weight: bold;
+    }
+
+    header .logo {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 2rem;
+      color: white;
+    }
+
+    h2 {
+      color: #556b2f;
+      padding: 1rem 2rem 0 2rem;
+    }
+
+    .pedido {
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      gap: 1rem;
+    }
+
+    .pedido img {
+      width: 120px;
+      border-radius: 12px;
+      border: 5px solid #dc2f5e;
+    }
+
+    .pedido-info {
+      font-size: 1.5rem;
+      color: #556b2f;
+      font-weight: bold;
+    }
+
+    .pedido-info .precio {
+      font-size: 1.2rem;
+      color: #6b8e23;
+    }
+
+    .seguimiento {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    .seguimiento img {
+      height: 60px;
+    }
+
+    .flecha {
+      width: 150px;
+      height: 10px;
+      background-color: #dc2f5e;
+      position: relative;
+    }
+
+    .flecha::after {
+      content: "";
+      position: absolute;
+      right: -10px;
+      top: -6px;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 10px solid #dc2f5e;
+    }
+
+    .volver {
+      display: block;
+      margin: 2rem auto;
+      padding: 0.8rem 1.5rem;
+      background-color: #dc2f5e;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .volver:hover {
+      background-color: #c22e50;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">BOOKNET</div>
+  </header>
+
+  <h2>TU PEDIDO:</h2>
+
+  <div class="pedido">
+    <img src="https://m.media-amazon.com/images/I/81dxFCnAp0L.jpg" alt="Harry potter y la piedra filosofal">
+    <div class="pedido-info">
+        Harry potter y la piedra filosofal <br/>
+      <span class="precio">$200</span>
+    </div>
+  </div>
+
+  <div class="seguimiento">
+    <img src="https://cdn-icons-png.flaticon.com/512/104/104678.png" alt="Caja">
+    <div class="flecha"></div>
+    <img src="https://cdn-icons-png.flaticon.com/512/9068/9068732.png" alt="Camión">
+    <div class="flecha" style="opacity: 0.3;"></div>
+    <img src="https://cdn-icons-png.flaticon.com/512/2989/2989988.png" alt="Casa">
+  </div>
+
+  <button class="volver" onclick="window.location.href='perfil.html'">Volver al perfil</button>
+</body>
+</html>
