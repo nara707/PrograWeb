@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOOKNET - Librero</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <body style="background-color: #f7e6ec;">
+
+  <header>
+    <h1>BOOKNET</h1>
+    <nav>
+      <ul>
+        <li><a href="#fantasia">Fantasía</a></li>
+        <li><a href="#ciencia">Ciencia Ficción</a></li>
+        <li><a href="#terror">Terror</a></li>
+        <li><a href="#clasicos">Clásicos</a></li>
+        <li><a href="#mangas">Mangas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <button class="mostrar-carrito" onclick="toggleCarrito()">🛒 Ver Carrito</button>
+
+  <button onclick="goToMain()">🛒 Ir al carrito</button>
+
+  <script>
+    function goToMain() {
+      window.location.href = "carrito.html";
+    }
+  </script>
+  <div class="carrito-container" id="carrito">
+    <h3>Carrito</h3>
+    <ul id="lista-carrito"></ul>
+    <p><strong>Total: $<span id="total-carrito">0</span></strong></p>
+  </div>
+
+  <main>
+    <section id="fantasia" class="categoria">
+      <h2>Libros de Fantasía</h2>
+    
+      <div class="libros-row">
+        
+        <!-- Harry Potter -->
+        <div class="libro-card">
+          <div class="libro-imagen">
+            <img src="harrypotter.jpg" alt="Harry Potter">
+          </div>
+          <div class="libro-info">
+            <h3>HARRY POTTER</h3>
+            <p class="precio">$450</p>
+            <p class="descripcion">
+              Descripción del producto <br>
+              ¡Magia, aventuras y amistad en Hogwarts! Ideal para jóvenes y adultos.
+            </p>
+            <button class="boton-carrito" onclick="agregarAlCarrito('Harry Potter', 450)">
+              Añadir al carrito
+            </button>
+          </div>
+        </div>
+    
+        <!-- Peter Pan y Wendy -->
+        <div class="libro-card">
+          <div class="libro-imagen">
+            <img src="peterpanywendy.jpg" alt="Peter Pan y Wendy">
+          </div>
+          <div class="libro-info">
+            <h3>PETER PAN Y WENDY</h3>
+            <p class="precio">$380</p>
+            <p class="descripcion">
+              Descripción del producto <br>
+              Una historia mágica de nunca crecer y explorar el país de Nunca Jamás.
+            </p>
+            <button class="boton-carrito" onclick="agregarAlCarrito('Peter Pan y Wendy', 380)">
+              Añadir al carrito
+            </button>
+          </div>
+        </div>
+    
+      </div>
+    </section>
+    
+  </main>
+
+  <footer>
+    <p>&copy; 2025 BOOKNET</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

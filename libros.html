@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle - Harry Potter | BOOKNET</title>
+  <style>
+    body {
+      background-color: #fdefff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .producto-container {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .producto-imagen {
+      width: 1900px;
+      height: 400px;
+      background-color: #dc2f5e;
+      background-size: cover;
+      background-position: center;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .producto-detalle {
+      max-width: 500px;
+    }
+
+    .producto-detalle h1 {
+      color: #556b2f;
+      margin-bottom: 0.5rem;
+    }
+
+    .producto-detalle .precio {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #556b2f;
+      margin-bottom: 1rem;
+    }
+
+    .producto-detalle p {
+      color: #4f4f4f;
+      margin-bottom: 1rem;
+    }
+
+    .btn-carrito {
+      padding: 0.5rem 1rem;
+      background-color: #a8d042;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-carrito:hover {
+      background-color: #8ab435;
+    }
+  </style>
+</head>
+<body>
+  <div class="producto-container">
+    <div
+      class="producto-imagen"
+      style="background-image: url('https://m.media-amazon.com/images/I/81q77Q39nEL._AC_UF894,1000_QL80_.jpg');"
+    ></div>
+    <div class="producto-detalle">
+      <h1>Harry Potter y la piedra filosofal</h1>
+      <div class="precio">$450.00 MXN</div>
+      <p>
+        Harry Potter y la piedra filosofal, es el primer libro de la serie literaria Harry Potter, escrito por la autora británica J. K. Rowling entre 1990 y 1995. Publicado en el año 1997, supuso además el debut de Rowling como escritora profesional. 
+      </p>
+      <button class="btn-carrito" onclick="agregarAlCarrito()">Añadir al carrito</button>
+    </div>
+  </div>
+
+  <script>
+    function agregarAlCarrito() {
+      const producto = {
+        nombre: "Harry Potter y la piedra filosofal",
+        precio: 299.00
+      };
+
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.push(producto);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+
+      alert("'" + producto.nombre + "' se ha añadido al carrito.");
+    }
+  </script>
+</body>
+</html>

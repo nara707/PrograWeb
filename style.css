@@ -1,0 +1,193 @@
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f6f2;
+      color: #f369a7c4;
+    }
+
+    header {
+      font-family: 'Fredoka', sans-serif;
+      background-color: #f369a7c4;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 40px 20px;
+    }
+
+    .categoria {
+      margin-bottom: 40px;
+    }
+
+    .categoria h2 {
+      color: #56a039;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+    }
+
+    .libro {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 300px;
+    }
+
+    .libro h3 {
+      margin-top: 0;
+    }
+
+    .libro button {
+      background-color: #a8d042;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    .libro button:hover {
+      background-color: #444;
+    }
+
+    .carrito-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #fdefff;
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        max-width: 300px;
+        display: none;
+        z-index: 1000;
+      }
+  
+      .carrito-container h3 {
+        margin-top: 0;
+      }
+  
+      .mostrar-carrito {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background-color: #a8d042;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1001;
+      }
+  
+    footer {
+      background-color: #f369a7c4;
+      color: #fff;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .libro-card {
+      display: flex;
+      background-color: #ffeef6;
+      border-radius: 20px;
+      padding: 20px;
+      gap: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      align-items: center;
+      max-width: 800px;
+      margin-bottom: 40px;
+    }
+    
+    .libro-imagen img {
+      width: 200px;
+      border-radius: 10px;
+      border: 6px solid #f369a7c4;
+    }
+    
+    .libro-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .libro-info h3 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #80a31f;
+      margin: 0;
+    }
+    
+    .precio {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #80a31f;
+      margin: 0;
+    }
+    
+    .descripcion {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1em;
+      color: #80a31f;
+    }
+    
+    .boton-carrito {
+      background-color: #cce36f;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .boton-carrito:hover {
+      background-color: #b5cd5f;
+    }
+    
+    .libros-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    
+    .libro-card {
+      flex: 1 1 350px;
+      max-width: 400px;
+    }
+    
+    h2 {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 700;
+      font-size: 2.2em;
+      color: #b4d162; /* Optional: match the green tone from the image */
+    }
+    

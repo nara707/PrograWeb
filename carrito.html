@@ -1,0 +1,94 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOOKNET - Página principal</title>
+  <style>
+    body {
+      background-color: #fdefff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: #556b2f;
+    }
+
+    #carrito-contenido {
+      background-color: #fff8f8;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      max-width: 600px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #carrito-contenido h2 {
+      color: #dc2f5e;
+      margin-top: 0;
+    }
+
+    #lista-carrito li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+      color: #333;
+    }
+
+    #vaciar-carrito, #finalizar-compra {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #dc2f5e;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+
+    #vaciar-carrito:hover, #finalizar-compra:hover {
+      background-color: #c22e50;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bienvenido a BOOKNET 📚</h1>
+  <p>Descubre nuestros libros favoritos y agrégalos a tu carrito.</p>
+
+  <div id="carrito-contenido">
+    <h2>🛒 Carrito de compras</h2>
+    <ul id="lista-carrito"></ul>
+    <button id="vaciar-carrito" onclick="vaciarCarrito()">Vaciar carrito</button>
+    <button id="finalizar-compra" onclick="window.location.href='crear-cuenta.html'">Finalizar compra</button>
+  </div>
+
+  <script>
+    function mostrarCarrito() {
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      const lista = document.getElementById("lista-carrito");
+      lista.innerHTML = "";
+
+      if (carrito.length === 0) {
+        const vacio = document.createElement("li");
+        vacio.textContent = "El carrito está vacío.";
+        lista.appendChild(vacio);
+        return;
+      }
+
+      carrito.forEach((producto) => {
+        const item = document.createElement("li");
+        item.textContent = ${producto.nombre} - $${producto.precio.toFixed(2)} MXN;
+        lista.appendChild(item);
+      });
+    }
+
+    function vaciarCarrito() {
+      localStorage.removeItem("carrito");
+      mostrarCarrito();
+    }
+
+    window.onload = mostrarCarrito;
+  </script>
+</body>
+</html>
